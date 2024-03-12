@@ -6,6 +6,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --contact-background: white;
+  --contact-foreground: black;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +15,10 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --contact-background: #313337;
+    --contact-btn-bg: #19191f;
+    --contact-btn-fg: white;
+    --contact-foreground: white;
   }
 }
 
@@ -26,6 +32,23 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.contact {
+  background-color: var(--contact-background);
+  color: var(--contact-foreground);
+  box-shadow: -5px 5px 7px rgba(0, 0, 0, 0.8), 2px -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contact-input {
+  background-color: var(--contact-background);
+  color: var(--contact-foreground);
+}
+
+.contact-btn {
+  background-color: var(--contact-btn-bg);
+  color: var(--contact-btn-fg);
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(0, 0, 0, 0.3);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -34,22 +57,44 @@ body {
 
 body.dark {
   /* Dark theme styles */
-  background-color: black;
+  background-color: #313337;
   color: white;
 }
 
 footer {
   /* Light theme styles */
   background-color: white;
-  color: black;
+  color: #313337;
   padding: 1rem;
   text-align: center;
 }
 
 footer.dark {
   /* Dark theme styles */
-  background-color: black;
+  background-color: #313337;
   color: white;
   padding: 1rem;
   text-align: center;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.arrow:hover {
+  animation: bounce 1s infinite, spin 1s infinite;
 }
