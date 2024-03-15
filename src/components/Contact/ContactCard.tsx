@@ -3,7 +3,7 @@ import React from 'react';
 const ContactCard: React.FC = () => {
 	return (
 		<section id="contact">
-			<div className="div-bg flex justify-center items-center">
+			<div className="flex justify-center items-center">
 				<div className="contact px-8 pt-6 pb-8 m-10 mb-4 flex flex-col w-full max-w-lg">
 					<h2 className="text-center text-3xl mb-4">CONTACT FORM</h2>
 					<div className="mb-4">

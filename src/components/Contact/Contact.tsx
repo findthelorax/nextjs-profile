@@ -5,8 +5,8 @@ import { userInfo } from '../../helpers/userInfo';
 
 const ContactSection: React.FC = () => {
 	return (
-		<section id="contact" className="flex justify-center div-bg">
-			<div className="div-bg flex flex-col items-center text-center w-1/2 pt-12">
+		<section id="contact" className="flex flex-col md:flex-row justify-center">
+			<div className="flex flex-col items-center text-center p-12 w-full md:w-1/4 lg:w-1/4">
 				<h1 className="mb-4 text-4xl">CONTACT</h1>
 				<p className="mb-8">Have a question? Please reach out.</p>
 				<p className="mb-1">Address</p>
@@ -20,7 +20,7 @@ const ContactSection: React.FC = () => {
 						href={userInfo.socials.youtube}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="hover:animate-bounce"
+						className="hover:animate-bounce mr-6"
 					>
 						<FaYoutube size={30} />
 					</a>
@@ -28,7 +28,7 @@ const ContactSection: React.FC = () => {
 						href={userInfo.socials.instagram}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="hover:animate-bounce"
+						className="hover:animate-bounce mr-6"
 					>
 						<FaInstagram size={30} />
 					</a>
@@ -42,7 +42,7 @@ const ContactSection: React.FC = () => {
 					</a>
 				</div>
 			</div>
-			<div>
+			<div className="w-full md:w-1/2 lg:w-1/2">
 				<ContactCard />
 			</div>
 		</section>
