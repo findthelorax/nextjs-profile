@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 const DroneImage: React.FC<{ src: string, alt?: string }> = ({ src, alt }) => {
     const imgRef = useRef(null);
@@ -6,7 +7,7 @@ const DroneImage: React.FC<{ src: string, alt?: string }> = ({ src, alt }) => {
     useEffect(() => {
         const img = imgRef.current;
 
-        const handleMouseMove = (event) => {
+        const handleMouseMove = (event: MouseEvent) => { // Add type here
             const rect = img.getBoundingClientRect();
 
             // get mouse position relative to the image
@@ -37,7 +38,9 @@ const DroneImage: React.FC<{ src: string, alt?: string }> = ({ src, alt }) => {
     }, []);
 
     return (
-        <img ref={imgRef} src={src} alt={alt} style={{width: '50vw', height: 'auto', position: 'absolute', zIndex: 1, right: '5vw'}} />
+        <div style={{width: '50vw', height: 'auto', position: 'absolute', zIndex: 1, right: '5vw'}}>
+            <Image ref={imgRef} src={src} alt={alt} layout="fill" objectFit="contain" />
+        </div>
     );
 };
 
