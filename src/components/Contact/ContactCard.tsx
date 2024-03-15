@@ -3,8 +3,8 @@ import React from 'react';
 const ContactCard: React.FC = () => {
 	return (
 		<section id="contact">
-			<div className="flex justify-center items-center">
-				<div className="contact px-8 pt-6 pb-8 m-10 mb-4 flex flex-col w-full max-w-lg">
+			<div className="flex justify-center items-center div-bg">
+				<div className="contact px-8 pt-6 pb-8 m-10 flex flex-col w-full max-w-lg">
 					<h2 className="text-center text-3xl mb-4">CONTACT FORM</h2>
 					<div className="mb-4">
 						<label className="sr-only" htmlFor="name">
@@ -40,7 +40,7 @@ const ContactCard: React.FC = () => {
 						></textarea>
 					</div>
 					<div className="flex items-center justify-center">
-						<button className="contact-btn hover:bg-blue-dark text-white font-bold py-2 px-4">
+						<button className="contact-btn font-bold py-2 px-4">
 							SEND MESSAGE
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

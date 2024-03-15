@@ -3,27 +3,20 @@ import HomeBrand from './HomeBrand';
 import HomeCard from './HomeCard';
 import DroneImage from './DroneImage';
 import NavBar from './NavBar';
+import { useTheme } from 'next-themes';
 
 const HomePage: React.FC = () => {
+    const { theme } = useTheme();
+
     return (
         <>
             <NavBar />
-        <div style={{
-            height: '80vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            position: 'relative',
-            backgroundColor: 'var(--background-color)',
-            backgroundImage: 'url(/assets/topo1.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-        }}>
-            <DroneImage src="/assets/phantom.png" alt="Mavic Pro" />
-            <HomeBrand />
-            <HomeCard />
-        </div>
+            <div className={`homePage ${theme === 'light' ? 'light' : ''}`}>
+                <div className="invertedImage"></div>
+                <DroneImage src="/assets/phantom.png" alt="Mavic Pro" />
+                <HomeBrand />
+                <HomeCard />
+            </div>
         </>
     );
 };

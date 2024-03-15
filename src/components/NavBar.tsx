@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import { useIsMounted } from '../hooks/useIsMounted';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import HamburgerMenu from './HamburgerMenu';
 
 const NavBar: React.FC = () => {
 	const { theme, setTheme, resolvedTheme } = useTheme();
@@ -28,18 +28,12 @@ const NavBar: React.FC = () => {
 		<div className="flex justify-center navbar-container">
 			<div className={`flex justify-between w-3/4 px-12`}>
 				<div className="mt-2 text-4xl navbar-brand">DKS DRONE</div>
-				<nav className="flex items-center mt-6">
-					<div className="md:hidden">
-						<button onClick={toggleMenu}>
-							{isOpen ? (
-								<AiOutlineClose className="h-6 w-6 text-gray-500" />
-							) : (
-								<AiOutlineMenu className="h-6 w-6 text-gray-500" />
-							)}
-						</button>
-					</div>
-					<div className={`flex items-center ${isOpen ? '' : 'hidden'} md:flex navbar-text`}>
-						<ul className="flex space-x-4">
+                <nav className="flex items-center mt-6">
+                    <div className="md:hidden">
+                        <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
+                    </div>
+                    <div className="hidden md:flex items-center navbar-text">
+						<ul className="flex space-x-4 ml-6">
 							<li className={`navbar-item ${router.pathname === "/" ? "active" : ""}`}>
 								<Link href="/">HOME</Link>
 							</li>
