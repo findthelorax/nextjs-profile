@@ -1,36 +1,35 @@
 import React from 'react';
-import { FaPython, FaJs, FaHtml5, FaCss3Alt, FaSnowboarding } from 'react-icons/fa';
-import { SiTypescript, SiNextdotjs, SiMongodb, SiPostgresql } from 'react-icons/si';
-import { GiEagleEmblem } from 'react-icons/gi';
+import { DSkills } from '../helpers/userInfo';
+import { services } from '../helpers/services';
 
 const Experience = () => {
-    const data = [
-        { language: 'JavaScript', icon: <FaJs size={50} /> },
-        { language: 'TypeScript', icon: <SiTypescript size={50} /> },
-        { language: 'HTML/CSS', icon: (
-            <div className="relative w-12 h-12">
-                <FaHtml5 className="absolute left-[-1rem]" size={40} />
-                <FaCss3Alt className="absolute right-[-1rem]" size={40} />
-            </div>
-        )},
-        { language: 'Next.js', icon: <SiNextdotjs size={50} /> },
-        { language: 'Python', icon: <FaPython size={50} /> },
-        { language: 'MongoDB', icon: <SiMongodb size={50} /> },
-        { language: 'PostgreSQL', icon: <SiPostgresql size={50} /> },
-        { language: 'Eagle Scout', icon: <GiEagleEmblem size={50} /> },
-        { language: 'Ski Patrol', icon: <FaSnowboarding size={50} /> },
-    ];
-
     return (
-        <div className="grid grid-cols-3 gap-4 w-1/2 mx-auto m-20">
-            {data.map((item, index) => (
-                <div key={index} className="flex flex-col items-center">
-                    <div className="mb-2">{item.icon}</div>
-                    <div className="mb-2 text-lg font-bold">{item.language}</div>
-                    <button className="px-4 py-2 bg-blue-500 text-white rounded">More Info</button>
-                </div>
-            ))}
-        </div>
+        <section id="services" className="flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 w-3/4 mx-auto m-20">
+                {DSkills.map((item, index) => {
+                    const matchedService = services.find(service => service.name === item.service);
+                    return (
+                        <div key={index} className="flip-card">
+                            <div className="flip-card-inner transform transition-transform duration-700 ease-in-out">
+                                <div className="flip-card-front flex flex-col justify-between items-center text-center glass-style h-full exp-card" style={{ backgroundImage: `url(${matchedService?.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                                    <div className="text-lg font-bold flex-grow">{item.service}</div>
+                                </div>
+                                <div className="flip-card-back flex flex-col justify-center items-center text-center glass-style h-full absolute w-full h-full top-0 rotate-y-180">
+                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl mb-4">
+                                        More Info
+                                    </button>
+                                    {matchedService && (
+                                        <>
+                                            <p>{matchedService.blurb}</p>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+        </section>
     );
 };
 
