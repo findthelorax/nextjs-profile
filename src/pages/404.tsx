@@ -7,7 +7,7 @@ const Custom404: React.FC = () => {
     useEffect(() => {
         console.error('Page not found, redirecting to homepage...');
         router.replace('/');
-    }, []);
+    }, [router]);
 
     return <p>Page not found, redirecting...</p>;
 };
