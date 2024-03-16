@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
 
 	return (
 		<div className="flex justify-center navbar-container">
-			<div className={`flex justify-between w-3/4 px-12`}>
+			<div className={`flex justify-between w-3/4`}>
 				<div className="mt-2 text-4xl navbar-brand">DKS DRONE</div>
                 <nav className="flex items-center mt-6">
                     <div className="md:hidden">

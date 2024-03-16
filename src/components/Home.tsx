@@ -13,7 +13,8 @@ const HomePage: React.FC = () => {
             <NavBar />
             <div className={`homePage ${theme === 'light' ? 'light' : ''}`}>
                 <div className="invertedImage"></div>
-                <DroneImage src="/assets/phantom.png" alt="Mavic Pro" />
+                
+                {/* <DroneImage src="/assets/phantom.png" alt="Mavic Pro" /> */}
                 <HomeBrand />
                 <HomeCard />
             </div>

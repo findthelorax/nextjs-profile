@@ -79,33 +79,33 @@
 }
 
 :root {
-	--background-color: rgb(215, 217, 218);
+	--background-color: rgb(232, 232, 232);
 	--text-color: black;
 	--foreground-rgb: 0, 0, 0;
 	--background-start-rgb: 214, 219, 220;
 	--background-end-rgb: 255, 255, 255;
 	--div-background: #c4c4cc;
 	--contact-background: white;
-	--contact-foreground: 0c0c0e;
-	--contact-btn-bg: white;
-	--contact-btn-fg: #0c0c0e;
-	--contact-text: #0c0c0e;
+	--contact-foreground: #000;
+	--contact-btn-bg: rgb(255, 238, 54);
+	--contact-btn-fg: #fff;
+	--contact-text: #000;
 	--contact-subText: #585858;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background-color: black;
-		--text-color: white;
-		--foreground-rgb: 255, 255, 255;
-		--background-start-rgb: 0, 0, 0;
-		--background-end-rgb: 0, 0, 0;
-		--div-background: #0c0c0e;
-		--contact-background: #0c0c0e;
-		--contact-foreground: white;
-		--contact-btn-bg-dark: #19191f;
-		--contact-btn-fg-dark: white;
-		--contact-text: white;
+		--background-color-dark: black;
+		--text-color-dark: white;
+		--foreground-rgb-dark: 255, 255, 255;
+		--background-start-rgb-dark: 0, 0, 0;
+		--background-end-rgb-dark: 0, 0, 0;
+		--div-background-dark: #000;
+		--contact-background-dark: #000;
+		--contact-foreground-dark: white;
+		--contact-btn-bg-dark: rgb(255, 238, 54);
+		--contact-btn-fg-dark: black;
+		--contact-text-dark: white;
 		--contact-subText: #a0a0a0;
 	}
 }
@@ -119,7 +119,7 @@ body {
 
 body.dark {
 	/* Dark theme styles */
-	background-color: #0c0c0e;
+	background: var(--background-color-dark);
 	color: rgb(215, 217, 218);
 	font-family: 'Teko', sans-serif;
 }
@@ -189,20 +189,28 @@ footer.dark {
 }
 
 .contact {
-	background-color: white;
+	background-color: var(--contact-background);
 	color: black;
+	border-radius: 10px;
 	box-shadow: 0 10px 30px rgba(31, 38, 135, 0.37), 0 30px 30px rgba(31, 38, 135, 0.22),
 		inset 0 0 15px rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .dark .contact {
-	background-color: var(--contact-background);
+	background-color: var(--contact-background-dark);
 	color: white;
 	box-shadow: 0 10px 30px rgba(97, 97, 104, 0.37), 0 30px 30px rgba(106, 106, 116, 0.22),
 		inset 0 0 15px rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .contact-input {
+	background-color: rgb(229, 229, 229);
+	color: black;
+	border: 1px solid transparent;
+	transition: border-color 0.3s ease;
+}
+
+.dark .contact-input {
 	background-color: rgb(229, 229, 229);
 	color: black;
 	border: 1px solid transparent;
@@ -229,14 +237,38 @@ footer.dark {
 
 .contact-btn {
 	background-color: var(--contact-btn-bg);
-	color: var(--contact-btn-fg);
-	box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.8), -2px -2px 4px rgba(79, 80, 82, 0.3);
+	color: var(--contact-text);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0);
+	border-radius: 5px;
 }
 
 .dark .contact-btn {
 	background-color: var(--contact-btn-bg-dark);
+	color: var(--contact-text);
+	box-shadow: 5px 5px 5px rgba(255, 255, 255);
+	border-radius: 5px;
+}
+
+.contact-btn:hover {
+	background-color: var(--contact-btn-bg);
+	color: var(--contact-btn-text);
+	box-shadow: inset 5px 5px 5px rgba(0, 0, 0);
+	transform: translate(5px, 5px);
+}
+
+.dark .contact-btn:hover {
+	background-color: var(--contact-btn-bg-dark);
 	color: var(--contact-btn-fg-dark);
-	box-shadow: 5px 5px 7px rgba(255, 255, 255, 0.8), -2px -2px 4px rgba(79, 80, 82, 0.3);
+	box-shadow: inset 5px 5px 5px rgb(255, 255, 255);
+	transform: translate(5px, 5px);
+}
+
+.contact-btn:hover .arrow {
+	animation: spin 1s infinite linear;
+}
+
+.dark .contact-btn:hover .arrow {
+	animation: spin 1s infinite linear;
 }
 
 .arrow:hover {
@@ -256,13 +288,11 @@ footer.dark {
 	max-width: 300px;
 	margin: 20px;
 	font-size: 1.5rem;
-	background: linear-gradient(135deg, rgba(8, 0, 50, 0.1) 0%, rgba(8, 0, 50, 0.05) 100%);
-	border: 1px solid rgba(210, 245, 255, 0.2);
+	/* background: rgba(0, 0, 0, 0.2); */
 	backdrop-filter: blur(5px);
-	box-shadow: 0 10px 30px rgba(97, 97, 104, 0.37), 0 30px 30px rgba(106, 106, 116, 0.22),
-		inset 0 0 15px rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-	border-radius: 20px;
+	border-radius: 10px;
 	padding: 20px;
 	color: black;
 	transition: transform 0.3s ease-in-out;
@@ -272,13 +302,11 @@ footer.dark {
 	text-align: center;
 	max-width: 300px;
 	margin: 20px;
-	background: linear-gradient(135deg, rgba(8, 0, 50, 0.1) 0%, rgba(8, 0, 50, 0.05) 100%);
-	border: 1px solid rgba(210, 245, 255, 0.2);
+	/* background: rgba(0, 0, 0, 0.2); */
 	backdrop-filter: blur(5px);
-	box-shadow: 0 10px 30px rgba(97, 97, 104, 0.37), 0 30px 30px rgba(106, 106, 116, 0.22),
-		inset 0 0 15px rgba(255, 255, 255, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
+
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-	border-radius: 20px;
+	border-radius: 10px;
 	padding: 20px;
 	color: white;
 	transition: transform 0.3s ease-in-out;
@@ -291,7 +319,7 @@ footer.dark {
 .custom-position {
 	position: absolute;
 	top: 20%;
-	left: 20%;
+	right: 20%;
 }
 
 .home-brand {
@@ -394,7 +422,7 @@ footer.dark {
 }
 
 .dark .navbar-container {
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(10px);
 	color: white;
 	font-family: 'Teko', sans-serif;
 }
@@ -402,7 +430,7 @@ footer.dark {
 .navbar-brand {
 	font-size: 5rem;
 	line-height: 1;
-	background: linear-gradient(to right, rgb(17, 25, 139), rgb(74, 74, 81));
+	background: linear-gradient(to right, rgb(17, 25, 139), rgb(203, 203, 204));
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	white-space: nowrap;
@@ -419,9 +447,20 @@ footer.dark {
 .navbar-item.active {
 	color: rgb(0, 14, 216);
 	position: relative;
+	font-size: 1.6rem;
 }
 
-.navbar-item::after {
+.navbar-item.active::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	height: 2px;
+	width: 100%;
+	background: white;
+	box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #00f, 0 0 40px #00f, 0 0 50px #00f, 0 0 60px #00f;
+}
+sS .navbar-item::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -458,6 +497,36 @@ footer.dark {
 	min-height: 250px;
 }
 
+.more-info-btn {
+	background-color: var(--contact-btn-bg);
+	color: var(--contact-btn-fg-dark);
+	box-shadow: 5px 5px 5px rgb(0, 0, 0);
+	border-radius: 5px;
+}
+
+.more-info-btn:hover {
+	background-color: var(--contact-btn-bg);
+	color: var(--contact-btn-fg-dark);
+	border-radius: 5px;
+	box-shadow: inset 5px 5px 5px rgba(0, 0, 0);
+	transform: translate(5px, 5px);
+}
+
+.dark .more-info-btn {
+	background-color: var(--contact-btn-bg);
+	color: var(--contact-btn-fg-dark);
+	border-radius: 5px;
+	box-shadow: 1px 1px 1px rgb(0, 0, 0), 5px 5px 5px rgba(255, 255, 255);
+}
+
+.dark .more-info-btn:hover {
+	background-color: var(--contact-btn-bg);
+	color: var(--contact-btn-fg-dark);
+	border-radius: 5px;
+	box-shadow: inset 2px 2px 2px black, inset 5px 5px 5px rgb(255, 255, 255);
+	transform: translate(5px, 5px);
+}
+
 .glass-style {
 	background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
 	backdrop-filter: blur(20px);
@@ -485,8 +554,28 @@ footer.dark {
 	transform-style: preserve-3d;
 	position: relative;
 }
+
 .flip-card-back {
-	color: black;
+	color: white;
+}
+
+.dark .flip-card-back {
+	color: white;
+}
+
+.flip-card-back.back-image::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	background-size: cover;
+	border-radius: 20px;
+	background-position: center;
+	opacity: 0.5;
+	z-index: -1;
 }
 
 .flip-card-inner .flip-card-front,
@@ -571,4 +660,10 @@ footer.dark {
 
 .facebook-icon {
 	color: '#316FF6';
+}
+
+.droneImage {
+	position: relative;
+	top: 20%;
+	right: -20%;
 }
