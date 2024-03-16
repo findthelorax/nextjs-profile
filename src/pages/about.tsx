@@ -8,7 +8,7 @@ const OpPolicyPage: React.FC = () => {
     return (
         <div className="flex flex-col min-h-screen">
             <NavBar />
-            <main className="flex-grow text-center text-black text-2xl">
+            <main className="flex-grow text-center text-black text-2xl mt-12">
                 <h1 className="text-4xl">Operation Policy</h1>
                 <SafeOperationPolicy />
             </main>

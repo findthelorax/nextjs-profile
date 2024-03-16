@@ -3,7 +3,7 @@ import React from 'react';
 const SafeOperationPolicy: React.FC = () => {
 	return (
 		<div className="flex items-center justify-center">
-            <div className="text-center p-10 bg-white shadow-lg rounded-lg" style={{ fontSize: '14px' }}>
+            <div className="text-center p-10 bg-white shadow-lg rounded-lg" style={{ fontSize: '20px' }}>
 				<h1 className="text-2xl font-bold mb-4">SAFE OPERATION POLICY</h1>
 				<p>
 					A safe operation policy is an integral component for the safe operation of a commercial drone. The

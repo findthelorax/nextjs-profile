@@ -40,8 +40,8 @@ const DroneImage: React.FC<{ src: string, alt?: string }> = ({ src, alt }) => {
     }, []);
 
     return (
-        <div style={{width: '50vw', height: 'auto', position: 'absolute', zIndex: 1, right: '5vw'}}>
-            <Image ref={imgRef} src={src} alt={alt || 'image'} layout="fill" />
+        <div style={{width: '40vw', height: 'auto', position: 'absolute', zIndex: 10, right: '10vw'}}>
+            <img ref={imgRef} src={src} alt={alt || 'image'} style={{objectFit: 'cover', width: '100%', height: '100%'}} />
         </div>
     );
 };

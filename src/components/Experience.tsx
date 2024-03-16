@@ -14,8 +14,8 @@ const Experience = () => {
                                 <div className="flip-card-front flex flex-col justify-between items-center text-center glass-style h-full exp-card" style={{ backgroundImage: `url(${matchedService?.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                                     <div className="text-2xl font-bold flex-grow">{item.service}</div>
                                 </div>
-                                <div className="flip-card-back flex flex-col justify-center items-center text-center glass-style h-full absolute w-full h-full top-0 rotate-y-180">
-                                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl mb-4">
+                                <div className="flip-card-back back-image flex flex-col justify-center items-center text-center glass-style h-full absolute w-full h-full top-0 rotate-y-180" style={{ backgroundImage: `url(${matchedService?.image})`, backgroundSize: 'cover'}}>
+                                    <button className="more-info-btn font-bold py-2 px-4 rounded-xl mb-4">
                                         More Info
                                     </button>
                                     {matchedService && (
