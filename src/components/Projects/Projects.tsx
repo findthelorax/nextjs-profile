@@ -5,7 +5,7 @@ import ProjectCard from './ProjectCard';
 import ProjectImage from './ProjectImage';
 import projects from './ProjectsData';
 
-const useProjectAnimations = (projectCount: number) => {
+const useProjectAnimationsHook = (projectCount: number) => {
     return Array.from({ length: projectCount }, (_, index) => {
         const [ref, inView] = useInView({
             triggerOnce: true,
@@ -23,7 +23,7 @@ const useProjectAnimations = (projectCount: number) => {
 };
 
 const Projects = () => {
-    const animations = useProjectAnimations(projects.length);
+    const animations = useProjectAnimationsHook(projects.length);
 
     return (
         <section id="projects" className='container mx-auto pt-20' style={{ overflowX: 'hidden' }}>
