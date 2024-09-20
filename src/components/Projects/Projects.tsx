@@ -1,62 +1,17 @@
 import React from 'react';
-import { useSpring, animated, config } from 'react-spring';
-import { useInView } from 'react-intersection-observer';
-import ProjectCard from './ProjectCard';
-import ProjectImage from './ProjectImage';
+import AnimatedProject from './AnimatedProject';
 import projects from './ProjectsData';
 
-const useProjectAnimations = (index: number) => {
-    const [ref, inView] = useInView({
-        triggerOnce: true,
-    });
-
-    const props = useSpring({
-        opacity: inView ? 1 : 0,
-        transform: inView ? 'translateX(0)' : `translateX(${index % 2 === 0 ? '100%' : '-100%'})`,
-        config: { ...config.slow, duration: 1000 },
-        delay: 300,
-    });
-
-    return { ref, props };
-};
-
 const Projects = () => {
-    const animations = projects.map((_, index) => useProjectAnimations(index));
-
-    const projectElements = projects.map((project, index) => {
-        const { title, description, languages, image, url } = project;
-        const { ref, props } = animations[index];
-        const alignment = index % 2 === 0 ? 'justify-start' : 'justify-end';
-
-        return (
-            <animated.div
-                ref={ref}
-                style={props}
-                className={`flex ${alignment} items-center`}
-                key={index}
-            >
-                {index % 2 === 0 ? (
-                    <>
-                        <ProjectImage image={image} title={title} url={url} />
-                        <ProjectCard title={title} description={description} languages={languages} />
-                    </>
-                ) : (
-                    <>
-                        <ProjectCard title={title} description={description} languages={languages} />
-                        <ProjectImage image={image} title={title} url={url} />
-                    </>
-                )}
-            </animated.div>
-        );
-    });
-
     return (
         <section id="projects" className='container mx-auto pt-20' style={{ overflowX: 'hidden' }}>
             <div className="mx-auto">
                 <div className="w-full text-white text-center py-2 projects-title">
                     <h1>PROJECTS</h1>
                 </div>
-                {projectElements}
+                {projects.map((project, index) => (
+                    <AnimatedProject key={index} project={project} index={index} />
+                ))}
             </div>
         </section>
     );
