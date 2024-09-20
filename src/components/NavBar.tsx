@@ -39,7 +39,7 @@ export default function Navbar() {
     }
 
     return (
-        <animated.div style={fade} className="sticky top-0 z-50 nav-container relative bg-transparent navbar-gradient">
+        <animated.div style={fade} className="sticky top-0 z-50 nav-container bg-transparent navbar-gradient">
             <nav className="flex items-center justify-center p-4 mx-auto navbar">
                 <div className="space-x-4">
                     <Link href="/" passHref>
