@@ -21,9 +21,11 @@ const useProjectAnimations = (index: number) => {
 };
 
 const Projects = () => {
+    const animations = projects.map((_, index) => useProjectAnimations(index));
+
     const projectElements = projects.map((project, index) => {
         const { title, description, languages, image, url } = project;
-        const { ref, props } = useProjectAnimations(index);
+        const { ref, props } = animations[index];
         const alignment = index % 2 === 0 ? 'justify-start' : 'justify-end';
 
         return (
