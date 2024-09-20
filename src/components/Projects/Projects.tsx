@@ -5,6 +5,21 @@ import ProjectCard from './ProjectCard';
 import ProjectImage from './ProjectImage';
 import projects from './ProjectsData';
 
+const useProjectAnimation = (index: number) => {
+    const [ref, inView] = useInView({
+        triggerOnce: true,
+    });
+
+    const props = useSpring({
+        opacity: inView ? 1 : 0,
+        transform: inView ? 'translateX(0)' : `translateX(${index % 2 === 0 ? '100%' : '-100%'})`,
+        config: { ...config.slow, duration: 1000 },
+        delay: 300,
+    });
+
+    return { ref, props };
+};
+
 const Projects = () => {
     return (
         <section id="projects" className='container mx-auto pt-20' style={{ overflowX: 'hidden' }}>
@@ -14,15 +29,7 @@ const Projects = () => {
                 </div>
                 {projects.map((project, index) => {
                     const { title, description, languages, image, url } = project;
-                    const [ref, inView] = useInView({
-                        triggerOnce: true,
-                    });
-                    const props = useSpring({
-                        opacity: inView ? 1 : 0,
-                        transform: inView ? 'translateX(0)' : `translateX(${index % 2 === 0 ? '100%' : '-100%'})`,
-                        config: { ...config.slow, duration: 1000 },
-                        delay: 300,
-                    });
+                    const { ref, props } = useProjectAnimation(index);
                     const alignment = index % 2 === 0 ? 'justify-start' : 'justify-end';
 
                     return (
