@@ -1,0 +1,49 @@
+.contact-form {
+    background: var(--background);
+    color: var(--secondary);
+    box-shadow: 10px 10px 0px var(--secondary);
+    border-radius: 10px;
+}
+
+.contact-form-header {
+    font-family: 'Rubik Doodle Shadow', sans-serif;
+    letter-spacing: .1rem;
+}
+
+.contact-form-headers {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 20px;
+    letter-spacing: .2rem;
+}
+
+.contact-btn {
+    background: var(--contact-btn-bg);
+    color: var(--contact-btn-text);
+    box-shadow: 0px 0px 0 var(--background);
+    border-radius: 5px;
+    font-family: 'Rubik Doodle Shadow', sans-serif;
+    letter-spacing: .1rem;
+}
+
+.contact-btn:hover {
+    box-shadow: 5px 5px 0 var(--primary);
+    transform: translateX(-5px) translateY(-5px);
+}
+
+.contact-btn:active {
+    box-shadow: inset 2px 2px 2px var(--primary), inset -1px -1px 1px var(--primary), inset 5px 5px 5px var(--primary), inset -2px -2px 2px var(--primary);
+    border-radius: 5px;
+    transform: translateX(0px) translateY(0px);
+}
+
+.dark .contact-btn:active {
+    box-shadow: inset 5px 5px 5px var(--primary), inset -2px -2px 2px var(--primary);
+    border-radius: 5px;
+    transform: translateX(0px) translateY(0px);
+}
+
+.contact-side-text {
+    font-family: 'Rubik Doodle Shadow', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: .1rem;
+}

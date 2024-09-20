@@ -1,0 +1,38 @@
+.navbar {
+    font-family: 'Rubik Doodle Shadow', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: .15rem;
+    backdrop-filter: blur(8px);
+}
+
+.dark .nav-icon {
+    filter: invert(1);
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 50%;
+    background-color: var(--accent);
+    border-radius: 50px;
+    transition: width 0.5s ease, left 0.5s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+    box-shadow: 
+        0 -5px 10px var(--accent), 
+        0 -10px 20px var(--secondary), 
+        0 -15px 30px var(--accent);
+}
