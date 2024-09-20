@@ -3,6 +3,7 @@ import { useTheme } from 'next-themes';
 import { PiSunHorizonDuotone, PiMoonStarsDuotone } from "react-icons/pi";
 import { useSpring, animated } from 'react-spring';
 import { useWindowScroll } from 'react-use';
+import Link from 'next/link';
 
 export default function Navbar() {
     const { resolvedTheme, setTheme } = useTheme();
@@ -41,10 +42,18 @@ export default function Navbar() {
         <animated.div style={fade} className="sticky top-0 z-50 nav-container relative bg-transparent navbar-gradient">
             <nav className="flex items-center justify-center p-4 mx-auto navbar">
                 <div className="space-x-4">
-                    <a href="/" className="nav-link">HOME</a>
-                    <a href="/#projects" className="nav-link">PROJECTS</a>
-                    <a href="/about" className="nav-link">ABOUT</a>
-                    <a href="/#contact" className="nav-link">CONTACT</a>
+                    <Link href="/" passHref>
+                        <a className="nav-link">HOME</a>
+                    </Link>
+                    <Link href="/#projects" passHref>
+                        <a className="nav-link">PROJECTS</a>
+                    </Link>
+                    <Link href="/about" passHref>
+                        <a className="nav-link">ABOUT</a>
+                    </Link>
+                    <Link href="/#contact" passHref>
+                        <a className="nav-link">CONTACT</a>
+                    </Link>
                     <button className="align-middle text-2xl" onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
                         {resolvedTheme === 'dark' ? <PiSunHorizonDuotone color="#FDB813" /> : <PiMoonStarsDuotone color="#4A4A68" />}
                     </button>

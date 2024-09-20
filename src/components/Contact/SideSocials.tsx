@@ -1,7 +1,7 @@
 import React from "react";
 import { AiTwotoneMail } from "react-icons/ai";
 import { PiGithubLogoDuotone, PiLinkedinLogoDuotone } from "react-icons/pi";
-import { useSpring, animated } from "react-spring";
+import { useSprings, animated } from "react-spring";
 
 const SideSocials = () => {
     const socials = [
@@ -22,13 +22,14 @@ const SideSocials = () => {
         },
     ];
 
-    const springs = socials.map((_, index) =>
-        useSpring({
+    const springs = useSprings(
+        socials.length,
+        socials.map((_, index) => ({
             from: { transform: "translate3d(0,-800px,0) rotate(0deg)" },
             to: { transform: "translate3d(0,0px,0) rotate(720deg)" },
             delay: 500 * index,
             config: { tension: 5, friction: 2 },
-        })
+        }))
     );
 
     return (
