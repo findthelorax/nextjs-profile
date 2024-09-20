@@ -21,6 +21,8 @@ const useProjectAnimation = (index: number) => {
 };
 
 const Projects = () => {
+    const animations = projects.map((_, index) => useProjectAnimation(index));
+
     return (
         <section id="projects" className='container mx-auto pt-20' style={{ overflowX: 'hidden' }}>
             <div className="mx-auto">
@@ -29,7 +31,7 @@ const Projects = () => {
                 </div>
                 {projects.map((project, index) => {
                     const { title, description, languages, image, url } = project;
-                    const { ref, props } = useProjectAnimation(index);
+                    const { ref, props } = animations[index];
                     const alignment = index % 2 === 0 ? 'justify-start' : 'justify-end';
 
                     return (
