@@ -80,13 +80,13 @@ const Name = () => {
 
     return (
         <div className="name-container p-4 flex flex-col items-end justify-center mx-auto h-[95vh] mt-4">
-            <Plx parallaxData={parallaxDataBrett}>
-                <animated.h1 style={propsBrett} className="text-8xl">BRETT</animated.h1>
+            <Plx parallaxData={parallaxDataBrett} className="brett-container">
+                <animated.h1 style={propsBrett} className="text-8xl brett">BRETT</animated.h1>
             </Plx>
             <Plx parallaxData={parallaxDataFerrante}>
                 <animated.h1 ref={ref} style={propsFerrante} className="text-8xl ferrante">FERRANTE</animated.h1>
             </Plx>
-            <Plx parallaxData={parallaxDataStackDeveloper}>
+            <Plx parallaxData={parallaxDataStackDeveloper} className="full-stack">
                 <animated.h2 style={propsStackDeveloper}>FULL STACK</animated.h2>
             </Plx>
             <Plx parallaxData={parallaxDataStackDeveloper}>

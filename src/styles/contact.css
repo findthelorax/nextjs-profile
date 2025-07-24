@@ -3,6 +3,7 @@
     color: var(--secondary);
     box-shadow: 10px 10px 0px var(--secondary);
     border-radius: 10px;
+    margin-left: 50px;
 }
 
 .contact-form-header {

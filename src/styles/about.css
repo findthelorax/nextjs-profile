@@ -1,0 +1,133 @@
+.about-section {
+	background: #ddb8d8;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 3rem 0;
+}
+
+.about-card-centered {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.about-card-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto auto auto auto;
+	gap: 1.5rem 2.5rem;
+	background: #fe605580;
+	border-radius: 20px;
+	box-shadow: 20px 20px 0px #000000cc;
+	border: 2px solid pink;
+	padding: 2.5rem 2rem;
+	margin-top: 50px;
+	max-width: 800px;
+	width: 90vw;
+	height: 500px;
+	font-family: 'PressStart', 'Fjalla One', Arial, sans-serif;
+	font-size: 13px;
+	line-height: 1.5rem;
+}
+
+.about-pic-wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-row: 1 / 2;
+}
+
+.about-pic-img {
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.45);
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+}
+
+.about-level {
+	color: #ffc600;
+	text-shadow: 2px 2px 2px black;
+	font-weight: bold;
+}
+
+.about-align-right {
+	text-align: right;
+}
+
+.about-name {
+	font-size: 1.2em;
+	margin-bottom: 0.5rem;
+	color: #fff;
+    font-size: 20px;
+    text-shadow: 2px 2px 2px black;
+    font-weight: bold;
+}
+
+.about-class,
+.about-weapon {
+	color: #fff;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 2px black;
+    font-size: 1.2em;
+}
+
+.about-class {
+    margin-left: 1.5em;
+}
+
+.about-weapon {
+    margin-left: 0.5em;
+    margin-top: .5em;
+}
+
+.about-weapon-img {
+    margin-bottom: 0em;
+}
+
+.about-labels {
+	color: #ffc600;
+	text-shadow: 2px 2px 2px black;
+	font-weight: bold;
+	text-align: left;
+}
+
+.about-values {
+	color: #fff;
+	text-shadow: 2px 2px 2px black;
+	font-weight: bold;
+}
+
+.about-exp {
+    color: #ffffff;
+	text-shadow: 2px 2px 2px black;
+	font-weight: bold;
+	margin-left: 1.5em;
+	font-size: 1.2em;
+}
+
+.about-strengths ul,
+.about-weaknesses ul {
+	list-style: none;
+	padding-left: 0;
+	margin: 0.5rem 0 0 0;
+    font-weight: bold;
+	text-shadow: 2px 2px 2px black;
+}
+
+.about-weaknesses h4 {
+	color: #ff0000;
+}
+
+@media (max-width: 700px) {
+	.about-card-grid {
+		grid-template-columns: 1fr;
+		grid-template-rows: none;
+		gap: 1rem;
+		padding: 1.5rem 0.5rem;
+	}
+	.about-align-right {
+		text-align: left;
+	}
+}

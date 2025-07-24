@@ -42,10 +42,10 @@ export default function Navbar() {
         <animated.div style={fade} className="sticky top-0 z-50 nav-container bg-transparent navbar-gradient">
             <nav className="flex items-center justify-center p-4 mx-auto navbar">
                 <div className="space-x-4">
-                    <Link href="/" passHref className="nav-link">HOME</Link>
-                    <Link href="/#projects" passHref className="nav-link">PROJECTS</Link>
-                    <Link href="/about" passHref className="nav-link">ABOUT</Link>
-                    <Link href="/#contact" passHref className="nav-link">CONTACT</Link>
+                    <Link href="/" className="nav-link">HOME</Link>
+                    <Link href="/#projects" className="nav-link">PROJECTS</Link>
+                    <Link href="/about" className="nav-link">ABOUT</Link>
+                    <Link href="/contact" className="nav-link">CONTACT</Link>
                     <button className="align-middle text-2xl" onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}>
                         {resolvedTheme === 'dark' ? <PiSunHorizonDuotone color="#FDB813" /> : <PiMoonStarsDuotone color="#4A4A68" />}
                     </button>

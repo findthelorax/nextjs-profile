@@ -31,8 +31,6 @@
     align-items: center;
     margin: 10px;
     letter-spacing: 0.2em;
-    background: black;
-    color: var(--text-color);
     padding: 5px 10px;
     border-radius: 10px;
     transition: 0.5s;
@@ -42,12 +40,6 @@
     cursor: pointer;
     transition: 0.5s;
     display: flex;
-}
-
-.skills-card-span:hover,
-.skills-card-span:hover .skills-text {
-    background-color: var(--accent);
-    color: var(--text-color);
 }
 
 .skills-content {
