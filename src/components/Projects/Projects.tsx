@@ -21,7 +21,11 @@ const useProjectAnimation = (index: number) => {
 };
 
 const Projects = () => {
-    const animations = projects.map((_, index) => useProjectAnimation(index));
+    // Call the hook in a top-level loop, not inside render
+    const animations = React.useMemo(
+        () => projects.map((_, index) => useProjectAnimation(index)),
+        [projects.length]
+    );
 
     return (
         <section id="projects" className="container mx-auto pt-20 px-4 md:px-12" style={{ overflowX: 'hidden' }}>
