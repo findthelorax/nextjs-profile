@@ -5,28 +5,7 @@ import ProjectCard from './ProjectCard';
 import ProjectImage from './ProjectImage';
 import projects from './ProjectsData';
 
-const useProjectAnimation = (index: number) => {
-    const [ref, inView] = useInView({
-        triggerOnce: true,
-    });
-
-    const props = useSpring({
-        opacity: inView ? 1 : 0,
-        transform: inView ? 'translateX(0)' : `translateX(${index % 2 === 0 ? '100%' : '-100%'})`,
-        config: { ...config.slow, duration: 1000 },
-        delay: 300,
-    });
-
-    return { ref, props };
-};
-
 const Projects = () => {
-    // Call the hook in a top-level loop, not inside render
-    const animations = React.useMemo(
-        () => projects.map((_, index) => useProjectAnimation(index)),
-        [projects.length]
-    );
-
     return (
         <section id="projects" className="container mx-auto pt-20 px-4 md:px-12" style={{ overflowX: 'hidden' }}>
             <div className="mx-auto">
@@ -35,7 +14,14 @@ const Projects = () => {
                 </div>
                 {projects.map((project, index) => {
                     const { title, description, languages, image, url } = project;
-                    const { ref, props } = animations[index];
+                    // Call hooks directly in the render
+                    const [ref, inView] = useInView({ triggerOnce: true });
+                    const props = useSpring({
+                        opacity: inView ? 1 : 0,
+                        transform: inView ? 'translateX(0)' : `translateX(${index % 2 === 0 ? '100%' : '-100%'})`,
+                        config: { ...config.slow, duration: 1000 },
+                        delay: 300,
+                    });
 
                     return (
                         <animated.div
